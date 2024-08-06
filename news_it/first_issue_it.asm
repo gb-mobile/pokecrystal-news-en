@@ -140,8 +140,8 @@ NewsRootScreen: ; $0006
 	line "atore a tema.@"
 
 .menuItemPokemonQuizDescription
-	db   "Test your memory"
-	line "of your adventure!@"
+	db   "Quiz dei ricordi"
+	line "sull'avventura!@"
 
 .menuItemQuitDescription
 	db   "Stop lettura"
