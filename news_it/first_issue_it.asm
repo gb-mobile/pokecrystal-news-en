@@ -1374,17 +1374,17 @@ TrainerRankingsRankingsScreen: ; $0CBD
 .playerRanked
 	cleartext $0105, $12, $04
 	specialtext $0119, .playerRankedText
-	cmpval wOwnRank, .doNothing, .doNothing, .doNothing, $04, $00, $00, $00, $01
+	cmpval wOwnRank, .doNothing, .checkGSBallEnabled, .doNothing, $04, $00, $00, $00, $01
 
-;.checkGSBallEnabled
-;	cmpval sMobileEventIndex, .doNothing, .enableGSBall, .doNothing, $01, $00
-;
-;.enableGSBall
-;	setval wcd6a, $01
-;	cpyvalram wcd6a, sMobileEventIndex, $0001
-;	cleartext $0105, $12, $04
-;	printtext $0119, .giftText
-;	menureturn
+.checkGSBallEnabled
+	cmpval sMobileEventIndex, .doNothing, .enableGSBall, .doNothing, $01, $00
+
+.enableGSBall
+	setval wcd6a, $01
+	cpyvalram wcd6a, sMobileEventIndex, $0001
+	cleartext $0105, $12, $04
+	printtext $0119, .giftText
+	menureturn
 
 .doNothing
 	end
