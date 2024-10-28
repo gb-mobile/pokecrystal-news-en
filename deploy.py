@@ -12,26 +12,36 @@ stat1 = 5
 stat2 = 39
 stat3 = 41
 
+message_pattern = re.compile(r'NEWS_TITLE\s+EQUS\s+"\\"(.*?)\\""')
 charmap_pattern = re.compile(r'charmap\s+\"(.+?)\",\s+\$([0-9a-f]{2})')
 
-# TODO: Parse the message directly from the issue asm (around line 29), truncating the ending '@'
 langs = {
-    'jp': { 'suffix': '', 'message': 'ポケモンニュース　そうかんごう' },
-    'en': { 'suffix': '_en', 'message': '#MON NEWS No.1' },
-    'es': { 'suffix': '_es', 'message': '#MON NEWS No.1' },
-    'de': { 'suffix': '_de', 'message': 'NACHRICHTEN Nr. 1' },
-    'fr': { 'suffix': '_fr', 'message': 'INFOS PKMN No.1' },
-    'it': { 'suffix': '_it', 'message': 'NOTIZIE PKMN Nº1' },
+    'jp': { 'suffix': '' },
+    'en': { 'suffix': '_en' },
+    'es': { 'suffix': '_es' },
+    'de': { 'suffix': '_de' },
+    'fr': { 'suffix': '_fr' },
+    'it': { 'suffix': '_it' },
 }
 
 def load_charmap(suffix):
     charmap = {}
     with open(f'pokecrystal/charmap{suffix}.asm') as file:
         for line in file:
-            m = charmap_pattern.match(line.strip())
+            m = charmap_pattern.search(line.strip())
             if m:
                 charmap[m.group(1)] = int(m.group(2), 16)
     return charmap
+
+def load_message(suffix):
+    charmap = {}
+    with open(f'news{suffix}/{issue}{suffix}.asm') as file:
+        for line in file:
+            m = message_pattern.search(line.strip())
+            if m:
+                # REON service automatically appends the '@' (0x50)
+                return m.group(1).strip('@')
+    return None
 
 def encode_text(message, charmap):
     encoded = bytearray()
@@ -68,7 +78,8 @@ if __name__ == "__main__":
 
     for k, v in langs.items():
         v['charmap'] = load_charmap(v['suffix'])
-        v['message_enc'] = encode_text(v['message'], v['charmap'])
+        message = load_message(v['suffix'])
+        v['message'] = encode_text(message, v['charmap'])
         v['news'] = load_news_file(v['suffix'])
 
     port = 3306
@@ -93,12 +104,12 @@ if __name__ == "__main__":
             )
             cursor.execute(sql, (
                 stat1, stat2, stat3,
-                langs['jp']['message_enc'],
-                langs['en']['message_enc'],
-                langs['de']['message_enc'],
-                langs['fr']['message_enc'],
-                langs['it']['message_enc'],
-                langs['es']['message_enc'],
+                langs['jp']['message'],
+                langs['en']['message'],
+                langs['de']['message'],
+                langs['fr']['message'],
+                langs['it']['message'],
+                langs['es']['message'],
                 langs['jp']['news'],
                 langs['en']['news'],
                 langs['de']['news'],
