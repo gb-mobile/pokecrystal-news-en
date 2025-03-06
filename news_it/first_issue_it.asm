@@ -534,7 +534,7 @@ PokemonQuizScreen: ; $0172
     db   "Quale oggetto"
     next "non è nella"
     next "GROTTA DI MEZZO?"
-    next "1. ATTACCO"
+    next "1. X ATTACCO"
     next "2. ANTIPARALISI"
     next "3. POZIONE"
     next "@"
@@ -1397,7 +1397,7 @@ TrainerRankingsRankingsScreen: ; $0CBD
 .giftText
 	text "Per aver ricevuto"
 	next "un grado così"
-	next "alto,"
+	cont "alto,"
 
 	para "ecco un regalo"
 	line "per te."
