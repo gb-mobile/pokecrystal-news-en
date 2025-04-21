@@ -905,7 +905,7 @@ TrainerRankingsScreen: ; $0857
 	
 	para "Le dimensioni del"
 	line "MAGIKARP più"
-	cont "grosso GURU"
+	cont "grosso per il GURU"
 	cont "PESCATORE al"
 	cont "LAGO D'IRA."
 
