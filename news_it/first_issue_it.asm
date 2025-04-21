@@ -1342,7 +1342,7 @@ TrainerRankingsRankingsScreen: ; $0CBD
 	db "@"
 
 .ownRankText
-	db "GRADO di :"
+	db "GRADO di: "
 	news_text_start
 	news_text_own_name 0
 	news_text_end
