@@ -896,9 +896,9 @@ TrainerRankingsScreen: ; $0857
 	para "Il numero di lotte"
 	line "#MON vinte"
 	cont "contro gli"
-	cont "ALLENATORI di"
-	cont "livello 40 alla"
-	cont "TORRE LOTTA."
+	cont "ALLENATORI alla"
+	cont "TORRE LOTTA sul"
+	cont "PERCORSO 40."
 
 	para "IL MAGIKARP PIÙ"
 	line "GROSSO"
