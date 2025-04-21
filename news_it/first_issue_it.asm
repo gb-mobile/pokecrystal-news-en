@@ -912,7 +912,7 @@ TrainerRankingsScreen: ; $0857
 	para "GARA PIGLIAMOSCHE"
 	line ""
 	
-	para "il punteggio più"
+	para "Il punteggio più"
 	line "alto ottenuto alla"
 	cont "GARA PIGLIAMOSCHE"
 	cont "tenuta nel PARCO"
