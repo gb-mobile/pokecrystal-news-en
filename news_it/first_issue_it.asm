@@ -567,7 +567,7 @@ PokemonQuizScreen: ; $0172
 	next "@"
 	
 .question10Text
-	db   "Quali oggetto"
+	db   "Quale oggetto"
 	next "non è nella CASA"
 	next "di MR. #MON?"
 	next "1. GETTONE"
