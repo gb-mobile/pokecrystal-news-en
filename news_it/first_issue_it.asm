@@ -1,5 +1,8 @@
 INCLUDE "header.asm"
 
+; defined here for easy extraction
+DEF NEWS_TITLE EQUS "\"NOTIZIE PKMN Nº1@\""
+
 NewsRootScreen: ; $0006
 	screenconfig
 	db MUSIC_PROF_ELM ; music
@@ -26,7 +29,7 @@ NewsRootScreen: ; $0006
 	
 	db $01 ; number of strings to draw
 	dw $0029 ; offset into screen buffer
-	db "NOTIZIE PKMN Nº1@" ; string
+	db NEWS_TITLE ; string
 	
 	db $02, $05 ; menu x, y
 	db $01, $04 ; number of columns, rows
