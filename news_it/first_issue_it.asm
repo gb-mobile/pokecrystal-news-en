@@ -488,8 +488,8 @@ PokemonQuizScreen: ; $0172
 	
 .question1Text
 	db   "Chi c'era nella"
-    next "#BALL centrale"
-    next "dal PROF.ELM?"
+    next "# BALL centrale"
+    next "del PROF.ELM?"
     next "1. TOTODILE"
     next "2. CYNDAQUIL"
     next "3. CHIKORITA"
@@ -531,8 +531,8 @@ PokemonQuizScreen: ; $0172
     next "@"
     
 .question6Text
-    db   "Quale oggetto"
-    next "non è nella"
+    db   "Quale oggetto non"
+    next "è presente nella"
     next "GROTTA DI MEZZO?"
     next "1. X ATTACCO"
     next "2. ANTIPARALISI"
@@ -570,7 +570,7 @@ PokemonQuizScreen: ; $0172
 	db   "Quale oggetto"
 	next "non è nella CASA"
 	next "di MR. #MON?"
-	next "1. GETTONE"
+	next "1. MONETE"
 	next "2. FRANCOBOLLO"
 	next "3. RIVISTA"
 	next "@"
